@@ -1,0 +1,6 @@
+rootProject.name = 'tools'
+
+include(':utils')
+include(':web')
+include(':admin')
+include(':services')

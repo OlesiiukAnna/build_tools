@@ -1,0 +1,28 @@
+plugins {
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'com.builders'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation project(':services')
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1' // provided by Tomcat
+    testImplementation project(':utils')
+    testImplementation 'junit:junit:4.12'
+}
+
+java {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
+
+war {
+    archiveVersion =  "${project.version}"
+    archiveName = "${project.name}.${extension}"
+    webAppDirectory = file('src/main/webapp')
+}
